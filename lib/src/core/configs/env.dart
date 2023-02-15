@@ -1,0 +1,5 @@
+enum Env {
+  API_URL,
+  API_PUBLIC_KEY,
+  API_PRIVATE_KEY;
+}

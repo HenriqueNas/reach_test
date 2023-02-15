@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'total_reach_app.dart';
+import '../core/named_routes.dart';
+import 'home/presenter/home_page.dart';
 
 class AppModule extends Module {
   @override
@@ -9,6 +9,9 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (_, args) => const TotalReachApp()),
+        ChildRoute(
+          NamedRoutes.home,
+          child: HomePage.fromModule(),
+        ),
       ];
 }
