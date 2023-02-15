@@ -1,0 +1,82 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include:
+  package:flutter_lints/flutter.yaml
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at
+  # https://dart-lang.github.io/linter/lints/index.html.
+
+linter:
+  rules:
+    avoid_redundant_argument_values: true
+    file_names: true
+    no_duplicate_case_values: true
+    sized_box_for_whitespace: true
+    always_declare_return_types: true
+    use_super_parameters: true
+    avoid_function_literals_in_foreach_calls: false
+    avoid_print: false
+    prefer_relative_imports: true
+    directives_ordering: true
+    prefer_single_quotes: true
+    require_trailing_commas: true
+    constant_identifier_names: false
+    no_leading_underscores_for_local_identifiers: false
+    use_build_context_synchronously: false
+    library_private_types_in_public_api: false
+    unnecessary_this: false
+    use_function_type_syntax_for_parameters: false
+    avoid_relative_lib_imports: false
+    prefer_adjacent_string_concatenation: false
+    prefer_conditional_assignment: false
+    curly_braces_in_flow_control_structures: false
+    annotate_overrides: false
+    use_key_in_widget_constructors: false
+    empty_catches: false
+    prefer_const_constructors: false
+    prefer_const_constructors_in_immutables: false
+    prefer_const_literals_to_create_immutables: false
+    prefer_const_declarations: false
+    prefer_interpolation_to_compose_strings: false
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - lib/**.g.dart
+    - lib/**.config.dart
+    - lib/generated_plugin_registrant.dart
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    lines-of-executable-code: 50
+    number-of-parameters: 4
+    maximum-nesting-level: 5
+  metrics-exclude:
+    - test/**
+  rules-exclude:
+    - test/**
+    - lib/**.g.dart
+    - .config.dart
+    - '**/*.g.dart'
+  rules:
+    - newline-before-return
+    - no-empty-block
+    - no-boolean-literal-compare
+    - prefer-trailing-comma
+    - prefer-conditional-expressions
+    - no-equal-then-else
+    - prefer-match-file-name
+    - avoid-returning-widgets
